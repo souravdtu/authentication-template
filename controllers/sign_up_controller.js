@@ -6,7 +6,7 @@ module.exports.email = function(req,res){
 };
 
 module.exports.google = function(req,res){
-        return res.render('sign_up_email');
+        return res.render('home');
 };
 
 module.exports.data = function(req,res){
