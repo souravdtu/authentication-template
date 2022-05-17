@@ -1,0 +1,31 @@
+{
+  "name": "authentication",
+  "version": "1.0.0",
+  "description": "authentication system for web  application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sourav",
+  "license": "ISC",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.1.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.3.3",
+    "node": "^17.7.2",
+    "nodemailer": "^6.7.5",
+    "nodemon": "^2.0.15",
+    "noty": "^3.2.0-beta-deprecated",
+    "passport": "^0.5.2",
+    "passport-google-oauth": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "secure-ls": "^1.2.6"
+  }
+}

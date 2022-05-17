@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>
+            HomE
+        </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="/css/home.css">
+        <script src="https://kit.fontawesome.com/d76b9d75bf.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+
+        <section id="left">
+            <div id="left-grid">
+                <h1>Sign in</h1>
+                <form action="/sign-in" method="get">
+                    <input type="email" placeholder="Email" name="email" required><br>
+                    <input type="password" placeholder="Password" minlength="6" maxlength="10" name="password" required><br>
+                    <input type="submit" value="Sign in" id="sign-in">
+                </form>
+                <a href="/forgot-password" id="forgot-password">Forgot your password?</a>
+            </div>
+        </section>
+
+        <section id="right">
+            <div id="right-grid">
+                <h1>Hello, Friend!</h1>
+                <h1 id="sign-up">Sign Up</h1>
+                <h5>With</h5>
+                <div id="i-container">
+                    <i class="fa-solid fa-envelope">
+                        <a href="/sign-up/email"></a>
+                    </i>
+                    <i class="fa-brands fa-google">
+                        <a href="/sign-up/google"></a>
+                    </i>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            <% if(flash.success && flash.success.length > 0){ %>
+                new Noty({
+                    theme: 'relax',
+                    text: '<%= flash.success%>',
+                    type: 'success',
+                    layout:'topRight',
+                    timeout: 1000
+                }).show()
+            <% } %>
+
+            <% if(flash.error && flash.error.length > 0){ %>
+                new Noty({
+                    theme: 'relax',
+                    text: '<%= flash.error%>',
+                    type: 'error',
+                    layout:'topRight',
+                    timeout: 1000
+                }).show()
+            <% } %>
+        </script>
+    </body>
+</html>

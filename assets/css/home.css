@@ -1,0 +1,88 @@
+body{
+    display: flex;
+    flex-direction: row;
+    font-family: cursive;
+}
+a{
+    text-decoration: none;
+}
+h1{
+    text-align: center;
+    font-size: xx-large;
+}
+#left{
+    width: 60vw;
+    height: 95vh;
+    display: grid;
+    place-items: center;
+    border-radius:  12px 0px 0px 12px;
+	background: linear-gradient(to right,rgb(100, 189, 193), white  5vw) ;
+}
+
+#right{
+    width: 40vw;
+    height: 95vh;
+    background-color: rgb(122, 186, 188);
+    border-radius:  0px 12px 12px 0px;
+    display: grid;
+    place-items: center;
+}
+
+#left-grid, #right-grid{
+    height: 35%;
+    width: 60%;
+    display: grid;
+    place-items: center;
+    color: rgb(122, 186, 188);
+    /* border: 1px solid yellow; */
+    transform: scale(1.5,1.5);
+}
+#right-grid{
+    height: 40%;
+    color: white;
+    place-content: center;
+}
+
+#sign-in,#sign-up{
+    background-color: rgb(122, 186, 188);
+    font-weight: bolder;
+    border-radius: 1vh;
+    padding: 0.4vh;
+    color: white;
+    font-size: x-large;
+    text-align: center;
+    font-family: cursive;
+    border-color: rgb(122, 186, 188);
+}
+#sign-up{
+    background-color: white;
+    color: rgb(122, 186, 188)
+}
+#forgot-password{
+    background-color: rgb(122, 186, 188);
+    font-weight: bolder;
+    border-radius: 0.5vh;
+    padding: 0.5vh;
+    color: white;
+    font-size: small;
+    text-align: center;
+}
+
+input{
+    margin-bottom: 1vh;
+}
+i{
+    /* border: 1px solid red; */
+    position: relative;
+    transform: scale(1.2,1.2);
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+i a{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
