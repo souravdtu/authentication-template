@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const port = 8000;
-
+const env = require('./config/env');
 // libraries required
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
@@ -19,17 +19,17 @@ const customMware = require('./config/custom-mw');
 // require('dotenv').config();
 
 // setting view engine
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs')
 app.set('views', './views');
 
 // middlewares
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:true}))
 app.use(cookieParser());
-app.use(express.static('assets'));
+app.use(express.static(env.asset_path));
 app.use(session({ 
         cookie: { maxAge: 50000 },
-        secret: 'woot',
+        secret: env.session_cookie_key,
         resave: false, 
         saveUninitialized: false,
         store: MongoStore.create({

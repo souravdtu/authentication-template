@@ -2,15 +2,16 @@ const passport = require('passport');
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const crypto = require('crypto');
 const User = require('../models/user');
-// const env = require('./environment');
-
-
+const env = require('./env');
 
 // tell passport to ue a new strategy for google login
-passport.use(new googleStrategy(
+passport.use(new googleStrategy({
+    clientID: env.google_client_id,
+    clientSecret: env.google_client_secret,
+    callbackURL: env.google_call_back_url,
+    },
     function(accessToken, refreshToken, profile,done){
         //find a user
-        // console.log(profile)
         User.findOne({email: profile.emails[0].value}).exec(function(err,user){
             if(err){console.log('err in google strategy-passport',err);return;}
             if(user){
@@ -20,8 +21,7 @@ passport.use(new googleStrategy(
                 //if not found , create the user and set it as req.user
                 User.create({
                     email: profile.emails[0].value,
-                    password: "U2FsdGVkX1+68+AMxU+eSpJBo/Tld+rbSAklzQfjKzo="
-                    // password: crypto.randomBytes(20).toString('hex')
+                    password: crypto.randomBytes(20).toString('hex')
                 },function(err,user){
                     if(err){console.log('error in creating user google strategy-passport', err); return;}
                     return done(null, user);
@@ -30,6 +30,5 @@ passport.use(new googleStrategy(
         });
     }
 ));
-
 
 module.exports = passport;
