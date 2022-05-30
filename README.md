@@ -3,7 +3,8 @@
 
 features:-
 
--Sign up with email
+
+- Sign up with email
 - Sign in (redirect to a blank home page with a sign out and reset password button after sign in)
 - Sign out
 - Reset password after sign in
@@ -12,5 +13,5 @@ features:-
 - Forgot password (send
 email for reset password link)
 - Display notifications for
-  unmatching passwords during sign up
+  unmatching passwords during sign up and 
   incorrect password during sign in
