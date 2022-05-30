@@ -17,16 +17,20 @@ passport.use(new LocalStrategy({
                 req.flash('error',err);
                 return done(err);
             }
-            // console.log(user);
+            console.log(user);
+
+            if(!user){
+                console.log('Invalid Username/Password');
+                req.flash('error', 'Not Registered with us');
+                return done(null, false);
+            }
             var bytes  = CryptoJS.AES.decrypt(user.password, 'sourav');
             var originalText = bytes.toString(CryptoJS.enc.Utf8);
-
-            if(!user || originalText != password){
+            if(originalText != password){
                 console.log('Invalid Username/Password');
                 req.flash('error', 'Invalid Username/Password');
                 return done(null, false);
             }
-            // console.log('uiuiui',user)
             return done(null,user);
         });
     }
